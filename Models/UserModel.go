@@ -1,12 +1,15 @@
 package Models
 
+import "time"
+
 type User struct {
-	ID      uint   `json:"id" gorm:"primary_key"`
-	Rollnum string `json:"rollnum" gorm:"primary_key;unique"`
-	Name    string `json:"name"`
-	Email   string `json:"email"`
-	Phone   uint   `json:"phone"`
-	Address string `json:"address"`
+	Email        string `json:"email;" gorm:"primary_key" sql:"not null;unique"`
+	Name         string `json:"name;" sql:"not null;"`
+	Phone        uint64 `json:"phone;" sql:"not null;unique;"`
+	Verified     bool   `json:"verified;" sql:"DEFAULT:false;"`
+	CreatedAt    time.Time
+	UpdatedAt    time.Time
+	PasswordHash string `json:"password"`
 }
 
 func (b *User) TableName() string {
