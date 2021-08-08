@@ -22,7 +22,7 @@ func NameMiddleware() gin.HandlerFunc {
 			c.AbortWithStatus(http.StatusNotFound)
 		}
 		fmt.Println("Email ", user.Email)
-		fmt.Println("HIHIHI")
+		fmt.Println("HIHIHI ")
 
 		// buf := make([]byte, 1024)
 		// num, _ := c.Request.Body.Read(buf)
